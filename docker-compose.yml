@@ -1,0 +1,40 @@
+version: '3.8' 
+
+services:
+  blogService:
+    build:
+      context: ./blogservice # Adjust based on backend Dockerfile location
+      dockerfile: Dockerfile
+    image: blogservice
+    ports:
+      - "3000:3000" # Expose and map backend port if needed
+    # environment:
+    #   - NODE_ENV=development
+    #   - DATABASE_URL=your_database_url_here # Add backend environment variables as needed
+    # depends_on:
+    #   - database # Ensure database starts before backend
+
+  commentService:
+    build:
+      context: ./commentservice # Adjust based on backend Dockerfile location
+      dockerfile: Dockerfile
+    image: commentservice
+    ports:
+      - "5000:5000" # Expose and map backend port if needed
+    # environment:
+    #   - NODE_ENV=development
+    #   - DATABASE_URL=your_database_url_here # Add backend environment variables as needed
+    # depends_on:
+    #   - database # Ensure database starts before backend
+
+  # userService:
+  #   build:
+  #     context: ./userservice # Adjust based on backend Dockerfile location
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "4000:4000" # Expose and map backend port if needed
+  #   # environment:
+  #   #   - NODE_ENV=development
+  #   #   - DATABASE_URL=your_database_url_here # Add backend environment variables as needed
+  #   # depends_on:
+  #   #   - database # Ensure database starts before backend
